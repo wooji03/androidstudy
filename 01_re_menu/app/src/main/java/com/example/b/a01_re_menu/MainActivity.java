@@ -24,12 +24,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreateContextMenu(menu, v, menuInfo);
         //getMenuInflater().inflate(R.menu.menu_name,menu); 이런방식도 가능
         //다른방법으로 해보자..
+        //일정부분을 길게 클릭했을때 나온는 메뉴
 
         menu.add(0,100,0,"context menu1");
         menu.add(0,101,0,"context menu2");
 
 
-        //sdfsdfsfsdfsdfs
+
 
     }
 
