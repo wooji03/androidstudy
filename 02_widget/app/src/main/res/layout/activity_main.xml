@@ -10,7 +10,7 @@
     tools:context="com.example.b.a02_widget.MainActivity">
 
     <TextView
-        android:textColor="#ff0000"
+        android:textColor="#000"
         android:ellipsize="marquee"
         android:singleLine="true"
         android:typeface="monospace"
@@ -18,4 +18,5 @@
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:text="Hello World!" />
+
 </RelativeLayout>
