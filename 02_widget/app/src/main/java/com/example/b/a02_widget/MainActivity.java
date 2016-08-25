@@ -24,7 +24,6 @@ public class MainActivity extends AppCompatActivity {
         btnHello.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 String str = myEdit.getText().toString();
                 Log.d("Widget","Button Click+"+str);
                 Toast.makeText(MainActivity.this, str, Toast.LENGTH_SHORT).show();

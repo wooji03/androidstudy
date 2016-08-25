@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="com.example.b.a02_widget.MainActivity">
-    <!--ScrollView는 단일뷰에서만 가능하다...-->
+    <!--ScrollView는 단일뷰에서만 가능하다...L-->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -30,9 +30,10 @@
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:text="02 Stody Widget" />
+
             <Button
                 android:id="@+id/btnHello"
-                android:text="Button1"
+                android:text="Button"
                 android:textStyle="bold"
                 android:layout_width="match_parent"
                 android:layout_height="300dp" />
