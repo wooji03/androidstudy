@@ -3,32 +3,119 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
     android:orientation="vertical"
     tools:context="com.example.b.a02_widget.MainActivity">
+    <!--ScrollView는 단일뷰에서만 가능하다...-->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:textColor="#000"
+                android:singleLine="true"
+                android:textStyle="bold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="02 Stody Widget" />
 
-    <TextView
-        android:textColor="#000"
-        android:ellipsize="marquee"
-        android:singleLine="true"
-        android:typeface="monospace"
-        android:textStyle="bold"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:text="02 Stody Widget" />
-    <Button
-        android:id="@+id/btnHello"
-        android:text="Button1"
-        android:textStyle="bold"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-    <CheckBox
-        android:id="@+id/myCheckBox"
-        android:text="CheckBox1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+            <TextView
+                android:textColor="#000"
+                android:ellipsize="marquee"
+                android:singleLine="true"
+                android:typeface="monospace"
+                android:textStyle="bold"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="02 Stody Widget" />
+            <Button
+                android:id="@+id/btnHello"
+                android:text="Button1"
+                android:textStyle="bold"
+                android:layout_width="match_parent"
+                android:layout_height="300dp" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:orientation="horizontal">
+                <CheckBox
+                    android:checked="true"
+                    android:id="@+id/myCheckBox1"
+                    android:text="CheckBox1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <CheckBox
+                    android:id="@+id/myCheckBox2"
+                    android:text="CheckBox2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
 
+            </LinearLayout>
+            <RadioGroup
+                android:id="@+id/myRadioG"
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <RadioButton
+                    android:checked="true"
+                    android:id="@+id/myRadio1"
+                    android:text="Radio1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <RadioButton
+                    android:id="@+id/myRadio2"
+                    android:text="Radio2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <RadioButton
+                    android:id="@+id/myRadio3"
+                    android:text="Radio1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </RadioGroup>
+
+            <!--토글버튼은 온일때와 오프일때 텍스트를 따로 지정해야된다.-->
+            <ToggleButton
+                android:textAllCaps="false"
+                android:checked="true"
+                android:textOn="myToggle On"
+                android:textOff="myToggle Off"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <!--EditText 계속늘어나기때문에 wrap_content가 아닌 사이즈를 지정하는것이 좋다-->
+            <EditText
+                android:hint="Input Number"
+                android:inputType="number"
+                android:singleLine="true"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <EditText
+                android:hint="Input Text"
+                android:inputType="text"
+                android:singleLine="true"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <requestFocus/>
+            </EditText>
+
+            <EditText
+                android:id="@+id/myEdit"
+                android:hint="Input Email"
+                android:inputType="textEmailAddress"
+                android:singleLine="true"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:ems="101"
+                android:id="@+id/editText" />
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>
