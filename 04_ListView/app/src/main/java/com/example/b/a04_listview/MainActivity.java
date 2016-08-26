@@ -2,8 +2,11 @@ package com.example.b.a04_listview;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -25,5 +28,15 @@ public class MainActivity extends AppCompatActivity {
                 myData);
 
         listView.setAdapter(adapter);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+
+            //parent가 listview , layout이 view ,position이 아이템 위에서부터 0~9... , id
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String myStr = myData[position].toString();
+                Toast.makeText(MainActivity.this, "MyData Item : "+myStr, Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }
