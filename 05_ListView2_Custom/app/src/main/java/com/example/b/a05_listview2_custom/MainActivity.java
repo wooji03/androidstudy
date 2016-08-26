@@ -11,6 +11,8 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
+    ArrayList<MyData> list = new ArrayList<MyData>();
+
     //inner class
     class MyData{
         public MyData(int imgId, String title, String desc) {
@@ -24,10 +26,6 @@ public class MainActivity extends AppCompatActivity {
         String desc;
     }
 
-    //ArrayList<MyData> list = new ArrayList<MyData>();
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -40,6 +38,10 @@ public class MainActivity extends AppCompatActivity {
         {
             list.add(new MyData(R.mipmap.ic_launcher,"Title"+i,"desc"+i));
         }
+
+        MyAdapter adapter = new MyAdapter();
+        listView.setAdapter(adapter);
+
     }
 
     class MyAdapter extends BaseAdapter {
