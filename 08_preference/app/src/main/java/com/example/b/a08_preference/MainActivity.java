@@ -10,8 +10,9 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    private SharedPreferences pref;
-
+    SharedPreferences pref;
+    EditText myIdTxt;
+    EditText myPwTxt;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,8 +26,10 @@ public class MainActivity extends AppCompatActivity {
         //pref 에 저장하는게 아니라...editor에 저장 하는...
 
         //
+        myIdTxt = (EditText) findViewById(R.id.myId);
+        myPwTxt = (EditText) findViewById(R.id.myPw);
 
-        if(saveId !="" && savePw !="")
+        if(saveId !="NO DATA" && savePw !="NO DATA")
         {
             Toast.makeText(MainActivity.this, "자동로그인", Toast.LENGTH_SHORT).show();
             startActivity(new Intent(MainActivity.this, LoginActivity.class));
@@ -39,14 +42,15 @@ public class MainActivity extends AppCompatActivity {
 
         Intent intent = new Intent(MainActivity.this, LoginActivity.class);
 
-        EditText myIdTxt = (EditText) findViewById(R.id.myId);
-        EditText myPwTxt = (EditText) findViewById(R.id.myPw);
+
 
         SharedPreferences.Editor editor = pref.edit();
         editor.putString("id",myIdTxt.getText().toString());
         editor.putString("pw",myPwTxt.getText().toString());
         editor.commit();
 
+        myIdTxt.setText("");
+        myPwTxt.setText("");
         startActivity(intent);
     }
 
