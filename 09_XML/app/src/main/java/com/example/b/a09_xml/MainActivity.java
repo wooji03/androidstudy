@@ -22,7 +22,6 @@ public class MainActivity extends AppCompatActivity {
         //에러로 처리할수도 있다.
 
         MyDomParser parser = new MyDomParser(textView);
-
         //AsyncTask<String, Void, Document>로 넘어가는 값값
         parser.execute("http://www.kma.go.kr/wid/queryDFSRSS.jsp?zone=4119055000");
 
