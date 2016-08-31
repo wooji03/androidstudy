@@ -45,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
                 super.onSuccess(statusCode, headers, response);
                 TextView textView = (TextView) findViewById(R.id.textView);
                 try {
+
                     String strRes2="";
                     JSONArray array = response.getJSONArray("contacts");
                     for(int i = 0;i<array.length();i++)
@@ -55,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
                         strRes2+="Name : "+name+", email : "+tel+"\n";
                     }
                     textView.setText(strRes2);
+
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
