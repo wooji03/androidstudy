@@ -1,19 +1,9 @@
-package com.example.b.a13_mediaplayer;
+package com.example.b.a13_mediaplayer_re;
 
-import android.media.MediaPlayer;
-import android.os.Bundle;
-import android.os.Environment;
-import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
-import android.view.View;
-import android.widget.Button;
-import android.widget.SeekBar;
-
-import java.io.IOException;
+import android.os.Bundle;
 
 public class MainActivity extends AppCompatActivity {
-
     MediaPlayer mp = null;
     SeekBar seekBar;
     private static final int SEEKBAR_CURR_POSITION = 100;
@@ -34,7 +24,6 @@ public class MainActivity extends AppCompatActivity {
 
         Button btnPlay = (Button) findViewById(R.id.btnPlay);
         Button btnStop = (Button) findViewById(R.id.btnStop);
-
     }
 
     public void onPlayClicked(View v){
