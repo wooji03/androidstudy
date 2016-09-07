@@ -10,7 +10,15 @@
     tools:context="com.example.b.a19_fragment.MainActivity">
 
     <TextView
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Hello World!" />
+    <fragment
+        android:name="com.example.b.a19_fragment.BlankFragment"
+        android:layout_below="@+id/textView"
+        android:id="@+id/counterFragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:layout="@layout/fragment_blank"></fragment>
 </RelativeLayout>
