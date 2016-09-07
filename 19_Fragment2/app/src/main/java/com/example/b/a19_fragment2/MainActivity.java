@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
                     BlankFragment bf = new BlankFragment();
                     FragmentTransaction tr = fm.beginTransaction();
                     tr.add(R.id.frame,bf,"counter");
+                    tr.addToBackStack(null);//backkey 역할.
                     tr.commit();
                 }
                 break;
@@ -36,13 +37,16 @@ public class MainActivity extends AppCompatActivity {
                     FragmentTransaction tr = fm.beginTransaction();
                     tr.remove(fr);
                     tr.commit();
+
+                    //if(fm.isDestroyed())
+                        //fm.popBackStack();//remove된걸 다시 꺼내올때...
                 }
                 break;
             case R.id.btnReplace:
                 if(fr != null)
                 {
                     FragmentTransaction tr = fm.beginTransaction();
-                    if(fr.getTag().equals("count")){
+                    if(fr.getTag().equals("counter")){
                         TextFragment tf = new TextFragment();
                         tr.replace(R.id.frame,tf, "text");
                     }else{
@@ -60,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
                     if(fr.isHidden())
                         tr.show(fr);
                     else
-                        tr.show(fr);
+                        tr.hide(fr);
 
                     tr.commit();
                 }
