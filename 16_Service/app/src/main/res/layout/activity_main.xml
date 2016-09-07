@@ -7,12 +7,19 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.b.a15_boardcase2.MainActivity">
+    tools:context="b.example.com.a16_service.MainActivity">
 
     <Button
-        android:onClick="onSendClick"
+        android:onClick="onStartClick"
+        android:id="@+id/btnStart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!" />
-
+        android:text="start" />
+    <Button
+        android:layout_toRightOf="@id/btnStart"
+        android:onClick="onStopClick"
+        android:id="@+id/btnStop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="stop" />
 </RelativeLayout>
