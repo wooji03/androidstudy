@@ -53,6 +53,17 @@ public class MainActivity extends AppCompatActivity {
                 }
                 break;
             case R.id.btnHide:
+                if(fr != null){
+
+                    FragmentTransaction tr = fm.beginTransaction();
+
+                    if(fr.isHidden())
+                        tr.show(fr);
+                    else
+                        tr.show(fr);
+
+                    tr.commit();
+                }
                 break;
         }
     }
