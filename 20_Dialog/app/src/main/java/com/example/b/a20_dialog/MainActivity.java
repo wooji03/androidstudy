@@ -2,9 +2,9 @@ package com.example.b.a20_dialog;
 
 import android.app.Dialog;
 import android.content.DialogInterface;
+import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
             builder.setMessage("앱을 종료하시겠습니까?");
             builder.setIcon(R.mipmap.ic_launcher);
             builder.setCancelable(false);//화면박을 눌렀을때 반응안하게 한다.
-            builder.setNeutralButton("Don't Read Late", new DialogInterface.OnClickListener() {
+            builder.setNeutralButton("Don't Read me Late", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
                     dialog.dismiss();
@@ -53,6 +53,17 @@ public class MainActivity extends AppCompatActivity {
 
     public void onBtnClicked(View v){
         //showDialog(R.id.onBtn);
-        showDialog(MY_DIALLOG);
+        //
+        switch (v.getId())
+        {
+            case R.id.onBtn1:
+                showDialog(MY_DIALLOG);
+                break;
+            case R.id.onBtn2:
+                MyPopup myPopup = new MyPopup(MainActivity.this);
+                myPopup.show();
+                break;
+        }
+
     }
 }
