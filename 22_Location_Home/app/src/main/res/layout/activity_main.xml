@@ -18,13 +18,13 @@
         android:id="@+id/textView"
         android:layout_below="@+id/btn"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="100dp"
         android:text="Hello World!" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_below="@+id/textView"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="match_parent"
         android:text="Hello World!" />
 </RelativeLayout>

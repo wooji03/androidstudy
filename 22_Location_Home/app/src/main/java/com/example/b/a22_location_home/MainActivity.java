@@ -2,6 +2,7 @@ package com.example.b.a22_location_home;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
+import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -13,6 +14,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import java.util.Date;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -20,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
     TextView textView2;
     Button btn;
     TestDBHandler testDBHandler;
+    Geocoder geocoder;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,8 +34,17 @@ public class MainActivity extends AppCompatActivity {
         btn = (Button) findViewById(R.id.btn);
 
         testDBHandler = new TestDBHandler(this);
-
+        geocoder = new Geocoder(MainActivity.this);
         LocationManager manager = (LocationManager) getSystemService(LOCATION_SERVICE);
+        List<String> providers = manager.getAllProviders();
+        String str = "";
+        for (int i = 0; i < providers.size(); i++) {
+            str += "provider : " + providers.get(i) + " state : " +
+                    manager.isProviderEnabled(providers.get(i)) + "\n";
+        }
+        textView.setText(str);
+
+
         LocationListener listener = new LocationListener() {
             @Override
             public void onLocationChanged(Location location) {
@@ -73,6 +85,6 @@ public class MainActivity extends AppCompatActivity {
     public void onBtnClicked(View v){
 
         String str = testDBHandler.showAllData();
-        textView.setText(str);
+        textView2.setText(str);
     }
 }
