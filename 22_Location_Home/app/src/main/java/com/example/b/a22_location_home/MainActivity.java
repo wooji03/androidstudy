@@ -1,64 +1,43 @@
-package com.example.b.a22_location;
+package com.example.b.a22_location_home;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
-import android.location.Address;
-import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
-import java.io.IOException;
-import java.util.List;
+import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {
-    TextView textView;
-    Geocoder geocoder;
 
+    TextView textView;
+    TextView textView2;
+    Button btn;
+    TestDBHandler testDBHandler;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
         textView = (TextView) findViewById(R.id.textView);
+        textView2 = (TextView) findViewById(R.id.textView2);
+        btn = (Button) findViewById(R.id.btn);
 
-        geocoder = new Geocoder(MainActivity.this);
-
-
-
-
+        testDBHandler = new TestDBHandler(this);
 
         LocationManager manager = (LocationManager) getSystemService(LOCATION_SERVICE);
-        List<String> providers = manager.getAllProviders();
-        String str = "";
-        for (int i = 0; i < providers.size(); i++) {
-            str += "provider : " + providers.get(i) + " state : " +
-                    manager.isProviderEnabled(providers.get(i)) + "\n";
-        }
-        textView.setText(str);
-
         LocationListener listener = new LocationListener() {
-            //        provider:passive ,state:true //최근에 사용했던 정보
-//        provider:nexwork, state:false //기지국정보
-//        provider:gps , state: false //gps 정보
             @Override
             public void onLocationChanged(Location location) {
-                String str = "lat : " + location.getLatitude() +
-                        "lon : " + location.getLongitude() + "\n";
-                textView.append(str);
-
-                try {
-                    List<Address> list = geocoder.getFromLocation(location.getLatitude(),
-                            location.getLongitude(), 10);
-                    Address address = list.get(0);
-                    textView.append( address.toString() );
-
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+                testDBHandler.insert(new Date().getTime(),
+                        location.getLatitude(), location.getLongitude());
             }
 
             @Override
@@ -88,6 +67,12 @@ public class MainActivity extends AppCompatActivity {
             // for ActivityCompat#requestPermissions for more details.
             return;
         }
-        manager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, listener);
+        manager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0, listener);
+    }
+
+    public void onBtnClicked(View v){
+
+        String str = testDBHandler.showAllData();
+        textView.setText(str);
     }
 }
