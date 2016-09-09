@@ -85,7 +85,9 @@ public class MainActivity extends AppCompatActivity {
         textView.append("My SDK VER : " + Build.VERSION.SDK_INT + "\n");
         textView.append("Build VER : " + Build.VERSION_CODES.M + "\n");
         textView.append("================" + REQUEST_PERMISSIONS + "\n");
+        Toast.makeText(MainActivity.this, "My SDK VER : " + Build.VERSION.SDK_INT+"Build VER : " + Build.VERSION_CODES.M, Toast.LENGTH_SHORT).show();
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            Toast.makeText(MainActivity.this, "권한 요청 승인이 필요합니다.", Toast.LENGTH_SHORT).show();
             if (ActivityCompat.checkSelfPermission(this,
                     Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
                     && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
